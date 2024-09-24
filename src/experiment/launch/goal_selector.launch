@@ -1,0 +1,12 @@
+<launch>
+    <arg name="ollama_model" default="llama3:8b" />
+    <arg name="gpt_model" default="gpt-4o" />
+    <arg name="landmarks_list_path" default="$(find foundations)/text/landmarks_list.txt" />
+
+    <node name="goal_selector_node" pkg="experiment" type="goal_selector_wrapper.py" output="screen" required='true'>
+        <param name="ollama_model" value="$(arg ollama_model)" />
+        <param name="gpt_model" value="$(arg gpt_model)" />
+        <param name="landmarks_list_path" value="$(arg landmarks_list_path)" />
+    </node>
+
+</launch>

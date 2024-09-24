@@ -1,0 +1,9 @@
+method: 'vlmap'
+scenario: 'human'
+scenario_done_topic: '/scenario_done'
+
+prompt_type: 'code'
+llm_type: 'ollama'
+landmarks_text_topic: "/landmarks_text"
+
+cost_map_topic: "/map_node/obstacle_map"

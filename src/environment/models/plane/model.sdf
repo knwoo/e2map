@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='plane'>
+    <static>true</static>
+    <link name="plane_link">
+      <visual name="plane_visual">
+        <geometry>
+          <mesh>
+            <uri>model://plane/meshes/plane.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://plane/materials/scripts</uri>
+            <uri>model://plane/materials/textures</uri>
+            <name>209_plane</name>
+          </script>
+        </material>
+      </visual>
+      <collision name="plane_collision">
+        <geometry>
+          <mesh>
+            <uri>model://plane/meshes/plane.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

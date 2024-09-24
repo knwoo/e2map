@@ -1,0 +1,27 @@
+<launch>
+      <rosparam file="$(find langnav)/config/config.yaml" command="load" />
+      <arg name="rname" default="go1"/>
+      
+      <param name="/stand_wait_count" type="int" value="6500" />
+      <param name="/move_base_wait_count" type="int" value="1000" />
+
+      <arg name="x_loc" default="-0.44" />
+      <arg name="y_loc" default="0" />
+      <arg name="z_loc" default="0.55" />
+      <arg name="yaw" default="0" />
+      
+      <!-- Gazebo go1 spawn -->
+      <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
+            args="-urdf -x $(arg x_loc) -y $(arg y_loc) -z $(arg z_loc) -Y $(arg yaw) -model $(arg rname)_gazebo -param robot_description -unpause"/>
+      
+      <!-- Load the controllers -->
+      <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false"
+            output="screen" ns="/$(arg rname)_gazebo" args="joint_state_controller
+            FL_hip_controller FL_thigh_controller FL_calf_controller
+            FR_hip_controller FR_thigh_controller FR_calf_controller
+            RL_hip_controller RL_thigh_controller RL_calf_controller
+            RR_hip_controller RR_thigh_controller RR_calf_controller "/>
+
+      <node pkg="unitree_guide" name="junior_ctrl" type="junior_ctrl"  output="screen"/> 
+  
+  </launch>

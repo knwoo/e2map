@@ -1,0 +1,5 @@
+<launch>
+    <arg name="rname" default="go1"/>
+    <param name="robot_name" value="$(arg rname)"/>
+
+</launch>

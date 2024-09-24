@@ -1,0 +1,17 @@
+<launch>
+    <!-- Gazebo go1 spawn -->
+    <include file="$(find unitree_guide)/launch/go1_spawner.launch">
+      <arg name="x_loc" default="-2.864374" />
+      <arg name="y_loc" default="-1.756540" />
+      <arg name="z_loc" default="0.55" />
+      <arg name="yaw" default="0" />
+    </include>
+
+    <!-- Param set -->
+    <param name="spawn_danger_sign" command="$(find xacro)/xacro $(find dynamic_objects)/../models/danger_sign/model.sdf" />
+
+    <!-- Gazebo danger_sign spawn -->
+    <node pkg="gazebo_ros" type="spawn_model" name="danger_sign" args="-sdf -param spawn_danger_sign -model danger_sign -x -1.942260 -y -2.464286 -z 0.0 -Y 0.876289" respawn="false" output="screen">
+
+    </node>
+  </launch>

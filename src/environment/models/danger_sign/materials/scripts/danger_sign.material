@@ -1,0 +1,13 @@
+material danger_sign
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ../textures/danger_sign_texture.png
+      }
+    }
+  }
+}

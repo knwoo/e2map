@@ -1,0 +1,70 @@
+NX : 4
+NU : 2
+K : 2000
+T : 15
+DT : 0.1
+DL : 0.1
+ICR : 0.0
+
+target_speed : 0.5 # [m/s] target speed
+vel_coef : 1.0
+vel_thres_coef : 1.0
+
+average : 10
+n_ind_search : 20
+
+custom_path_name : 'custom_path.csv'
+
+num_vis : 50
+verbose : False
+vis_segment : True
+vis_reference : True
+vis_candidate : True
+vis_hist : False
+vis_poly : False
+vis_subgoal : True
+debug_cost : False
+linear_path : False
+dynamic_config : False
+
+update_subgoal : False # if true : lp_subogal -> tracker_subgoal
+use_state : True
+use_terminal : False
+use_subgoal : False
+use_velocity : False
+use_heading : False
+
+Lam : 3
+Gam : 1.2
+
+Cov : [0.1, 2.0]
+Q : [10.0, 10.0, 0.0, 0.0]  # state cost matrix
+Qf : [10.0, 10.0, 0.0, 0.01]  # state final matrix
+R : [0.1, 0.5] # input cost matrix
+
+subgoal_cost_weight : 20.0
+velocity_cost_weight : 10.0
+heading_cost_weight : 10.0
+map_cost_weight : 0.0
+map_const : False
+cost_thres: 0.5
+
+tracking_thres : 5.0
+goal_thres : 0.5
+subgoal_thres : 5.0
+
+# Poly | Spline | SmoothSpline | PenalizedBSpline
+Lamb : 0.0001
+Window : 5
+Knot : 5
+# Regressor_Type : Poly
+# Order : 2
+
+Regressor_Type : Spline
+Order : 2
+
+# Regressor_Type : SmoothSpline`
+# Order : 2
+
+# Regressor_Type : PenalizedBSpline
+# Order : 2

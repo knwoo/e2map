@@ -1,0 +1,37 @@
+<launch>
+    <!-- <arg name="config" default="$(find langnav)/config/config.yaml" />
+    <rosparam file="$(arg config)" command="load" /> -->
+
+    <!-- args related to declare subgoal coordinate filter-->
+    <arg name="data_path" default="$(find e2map)/data" />
+    <arg name="mask_version" default="1" />
+    <arg name="clip_version" default="ViT-B/32" />
+    <arg name="min_area" default="50.0" />
+    <arg name="max_area" default="8000.0" />
+    <arg name="margin" default="16" />
+    <arg name="do_crop" default="false" />
+    <arg name="device" default="cuda" />
+    <arg name="raycast_resolution" default="15" />
+
+    <!-- args related to use topology graph to parse subgoal locations -->
+    <arg name="topo_data_path" default="$(find e2map)/../../data_209" />
+    
+    <!-- args related to input of ROS wrapper of subgoal coordinate filter -->
+    <arg name="landmarks_list_path" default="$(find foundations)/text/landmarks_list.txt" />
+
+    <node name="subgoal_coordinate_filter_node" pkg="e2map" type="scf_wrapper.py" output="screen" >
+        <param name="data_path" value="$(arg data_path)" />
+        <param name="mask_version" value="$(arg mask_version)" />
+        <param name="clip_version" value="$(arg clip_version)" />
+        <param name="min_area" value="$(arg min_area)" />
+        <param name="max_area" value="$(arg max_area)" />
+        <param name="margin" value="$(arg margin)" />
+        <param name="do_crop" value="$(arg do_crop)" />
+        <param name="device" value="$(arg device)" />
+        <param name="raycast_resolution" value="$(arg raycast_resolution)"/>
+        
+        <param name="topo_data_path" value="$(arg topo_data_path)" />
+
+        <param name="landmarks_list_path" value="$(arg landmarks_list_path)"/>
+    </node>
+</launch>

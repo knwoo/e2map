@@ -1,0 +1,32 @@
+<launch>
+    <!-- config -->
+    <!-- <arg name="config" default="$(find langnav)/config/config.yaml" />
+    <rosparam file="$(arg config)" command="load" /> -->
+    
+    <arg name="dist_thres" default="1.3"/>
+    <arg name="pc_cnt_thres" default="10"/>
+    <arg name="pub_freq" default="10.0"/>
+    <arg name="is_gazebo" default="true"/>
+    <arg name="rviz" default="false"/>
+
+    <group unless="$(arg is_gazebo)">
+        <node name="collision_detection" pkg="perception" type="collision_detection" output="screen">
+            <param name="angle_thresholds" value="-1.5,1.5" /> <!-- 360 degrees -->
+            <param name="channel_thresholds" value="7,9" /> <!-- from 0 to 15 (0 is the bottom, 15 is the top)-->
+            <param name="pub_freq" value="$(arg pub_freq)" />
+            <param name="pc_cnt_thres" value="$(arg pc_cnt_thres)" /> <!-- the number of published points not blocked by the moving objects -->
+        </node>
+    </group>
+
+    <group if="$(arg is_gazebo)">
+        <node name="collision_detection_gazebo" pkg="perception" type="collision_detection_gazebo" output="screen">
+            <param name="actor_model_names" value="my_actor,door_1::handles,danger_sign" /> <!-- my_actor, door_1 -->
+            <param name="pub_freq" type="double" value="$(arg pub_freq)" />
+            <param name="dist_thres" type="double" value="$(arg dist_thres)" /> <!-- the distance threshold between the robot and the dynamic objects -->
+        </node>
+    </group>
+
+    <group if="$(arg rviz)">
+      <node pkg="rviz" type="rviz" name="rviz" args="-d $(find perception)/rviz/collision_detection.rviz" output="screen"/>
+    </group>
+</launch>

@@ -1,0 +1,50 @@
+base_frame_id: base_footprint
+odom_frame_id: odom
+map_frame_id: odom
+
+map_resolution: 0.05
+camera_height: 1.5
+goal_arrived_thresh: 0.3
+
+# Method
+method: 'e2map'
+prompt_type: 'code'
+
+# Topic Names
+## Sensors
+color_topic: "/d435/color/image_raw"
+depth_topic: "/d435/depth/image_raw"
+
+## Subgoal Filter
+subgoal_topic: "/subgoal_coordinate_filter_node/subgoal"
+subgoal_text_topic: "/subgoal_coordinate_filter_node/subgoal_text"
+subgoal_arrived_topic: "/subgoal_coordinate_filter_node/subgoal_arrived"
+
+## Localization
+localization_topic: "/gt_pose"
+loc_go1_topic: "/loc_go1_topic"
+gazebo_model_name: "go1_gazebo"
+gazebo_model_states_topic: "/gazebo/model_states"
+gazebo_link_states_topic: "/gazebo/link_states"
+
+## Map Server 
+cost_map_topic: "/map_node/cost_map"
+obstacle_map_topic: "/map_node/obstacle_map"
+point_cloud_topic: "/map_node/cost_map_pc"
+map_init_topic: "/map_node/init"
+
+## Planning 
+### Local Path Planner
+local_path_topic: "/planning/path_planner/local_path"
+clicked_goal_topic: "/clicked_point"
+
+### Controller
+cmd_ctrl_topic: "/cmd_vel"
+
+## Perception
+collision_detection_topic: "/perception/collision_detection/is_collision"
+
+## Reset
+reset_topic: "/reset_topic"
+success_topic: "/success_topic"
+update_finished_topic: "/update_finished_topic"

@@ -1,0 +1,41 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='danger_sign'>
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="danger_sign_link">
+        <inertial>
+            <mass>1.0</mass>
+            <inertia> 
+            <ixx>0.083</ixx>        
+            <ixy>0.0</ixy>         
+            <ixz>0.0</ixz>         
+            <iyy>0.083</iyy>        
+            <iyz>0.0</iyz>         
+            <izz>0.083</izz> 
+            </inertia>
+        </inertial>
+        <visual name="danger_sign_visual">
+            <geometry>
+            <mesh>
+                <uri>model://danger_sign/meshes/model.dae</uri>
+            </mesh>
+            </geometry>
+            <material>
+            <script>
+                <uri>model://danger_sign/materials/scripts</uri>
+                <uri>model://danger_sign/materials/textures</uri>
+                <name>danger_sign</name>
+            </script>
+            </material>
+        </visual>
+        <collision name="danger_sign_collision">
+            <geometry>
+            <mesh>
+                <uri>model://danger_sign/meshes/model.dae</uri>
+            </mesh>
+            </geometry>
+        </collision>
+    </link>
+  </model>
+</sdf>

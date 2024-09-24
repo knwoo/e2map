@@ -1,0 +1,10 @@
+Head to the table.
+Walk to the microwave.
+Move to the refrigerator, and move to the bottom of chair.
+Go to the chair, then take a step toward the table.
+Make your way to the microwave, and stop at the TV monitor.
+Move to the microwave, pass the picture, and finally stop at the bottom of the chair.
+Take a step toward the picture, move to the refrigerator, and reach the chair.
+Walk to the chair, go to the microwave, and stop at the refrigerator.
+Make your way to the microwave, pass the picture, and arrive between the chair and the refrigerator.
+Head to the picture, stop at the table, go to the refrigerator, and reach to the rightside of the chair.

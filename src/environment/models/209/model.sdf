@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='209'>
+    <static>true</static>
+    <link name="209_link">
+      <visual name="209_visual">
+        <geometry>
+          <mesh>
+            <uri>model://209/meshes/209.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://209/materials/scripts</uri>
+            <uri>model://209/materials/textures</uri>
+            <name>209_36</name>
+          </script>
+        </material>
+      </visual>
+      <collision name="209_collision">
+        <geometry>
+          <mesh>
+            <uri>model://209/meshes/209.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

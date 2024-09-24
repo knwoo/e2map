@@ -1,0 +1,55 @@
+<launch>
+    <!-- <arg name="config" default="$(find langnav)/config/config.yaml" />
+    <rosparam file="$(arg config)" command="load" /> -->
+    
+    <!-- local topics -->
+    <arg name="data_path" default="$(find e2map)/data"/>
+    <arg name="obstacle_map_name" default="obstacles.npy"/>
+    <arg name="cost_map_name" default="costmap.npy"/>
+    <arg name="fps" default="1"/>
+    <arg name="cost_radius" default="15"/>
+    <arg name="pdf_threshold" default="0.0001"/>
+    <arg name="point_cloud_z_scale" default="100"/>
+    
+    <!-- sftp -->
+    <arg name="hostname" default="<put your hostname>"/>
+    <arg name="username" default="<put your username>"/>
+    <arg name="password" default="<put your password>"/>
+    <arg name="rgb_filename" default="event"/>
+    <arg name="event_filename" default="event_desc"/> 
+    <arg name="emotion_filename" default="emotion_eval"/> 
+    
+    <!-- e2map update -->
+    <arg name="pose_buffer_size" default="10"/>
+    <arg name="rgb_buffer_size" default="60"/>
+    <arg name="event_timegap" default="20"/>
+    <arg name="tau" default="0.1"/>
+    <arg name="update_rule" default="wf"/>
+    <arg name="cov_coef" default="8"/>
+    <arg name="n_neighbors" default="3"/>
+    
+    <node name="map_node" pkg="e2map" type="map.py">
+        <param name="data_path" value="$(arg data_path)"/>
+        <param name="obstacle_map_name" value="$(arg obstacle_map_name)"/>
+        <param name="cost_map_name" value="$(arg cost_map_name)"/>
+        <param name="fps" value="$(arg fps)"/>
+        <param name="cost_radius" value="$(arg cost_radius)"/>
+        <param name="pdf_threshold" value="$(arg pdf_threshold)"/>
+        <param name="point_cloud_z_scale" value="$(arg point_cloud_z_scale)"/>
+        
+        <param name="hostname" value="$(arg hostname)"/>
+        <param name="username" value="$(arg username)"/>
+        <param name="password" value="$(arg password)"/>
+        <param name="rgb_filename" value="$(arg rgb_filename)"/>
+        <param name="event_filename" value="$(arg event_filename)"/>
+        <param name="emotion_filename" value="$(arg emotion_filename)"/>  
+        
+        <param name="pose_buffer_size" value="$(arg pose_buffer_size)"/>
+        <param name="rgb_buffer_size" value="$(arg rgb_buffer_size)"/>
+        <param name="event_timegap" value="$(arg event_timegap)"/>
+        <param name="tau" value="$(arg tau)"/>
+        <param name="update_rule" value="$(arg update_rule)"/>
+        <param name="cov_coef" value="$(arg cov_coef)"/>
+        <param name="n_neighbors" value="$(arg n_neighbors)"/>
+    </node>
+</launch>

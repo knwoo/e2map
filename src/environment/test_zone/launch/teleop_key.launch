@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="model" default="go1"/>
+  <param name="model" value="$(arg model)"/>
+
+  <node pkg="test_zone" type="teleop_key" name="teleop_keyboard"  output="screen">
+  </node>
+</launch>

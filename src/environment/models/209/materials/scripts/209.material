@@ -1,0 +1,13 @@
+material 209_36
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ../textures/209_texture.png
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+Go straight to the picture.
+Reach the picture.
+Move to the table, and finish at the picture.
+Head between the shelving and refrigerator, and end at the picture.
+Head toward the refrigerator, and finally stop at the picture.
+First, go in front of the microwave, move to the top of the refrigerator, and end your trajectory at the picture.
+Head to the bottom of shelving, walk to the table, and finish your move in front of the picture.
+Move between the table and microwave, pass to the refrigerator, and head straight to the picture.
+Pass to the rightside of the table, go to the microwave, move between the table and refrigerator, and finally reach the picture.
+Walk to the bottom side of the shelving, go to the table, then move to the refrigerator, and finish at the picture.

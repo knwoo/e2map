@@ -1,0 +1,5 @@
+<launch>
+    <rosparam file="$(find langnav)/config/config.yaml" command="load" />
+
+    <node ns="go1" pkg='go1' type='go.py' name='go1'/>
+</launch>

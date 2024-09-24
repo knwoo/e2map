@@ -1,0 +1,41 @@
+<launch>
+    <!-- Arg set -->
+    <arg name="threshold_distance" default="3.0" />
+    <arg name="actor_speed" default="2.0" />
+    <arg name="rname" default="go1"/>
+    <arg name="follow_mode" default="path" doc="Mode for following. Options: 'velocity' for velocity-based control, 'path' for path-following." />
+    <arg name="vel_topic" default="/actor_vel" doc="Topic name for the vel commands." />
+    <arg name="path_topic" default="/actor_path" doc="Topic name for the path commands." />
+
+    <!-- only follow_mode: Path case. When actor move -->
+    <!-- larger than -->
+    <arg name="x_thr" default="0.32" />
+    <!-- smaller than -->
+    <arg name="y_thr" default="0.09" />
+
+    <!-- Param set -->
+    <param name="follow_mode" value="$(arg follow_mode)" />
+    <param name="vel_topic" value="$(arg vel_topic)" />
+    <param name="path_topic" value="$(arg path_topic)" />
+    <param name="linear_velocity" value="$(arg actor_speed)" />
+
+    <!-- Gazebo go1 spawn -->
+    <include file="$(find unitree_guide)/launch/go1_spawner.launch">
+      <arg name="x_loc" default="-0.31" />
+      <arg name="y_loc" default="0" />
+      <arg name="z_loc" default="0.55" />
+      <arg name="yaw" default="0" />
+    </include>
+  
+    <!-- Gazebo actor spawn -->
+    <node name="spawn_actor" pkg="gazebo_ros" type="spawn_model" output="screen" args="
+      -sdf -model my_actor -file $(find dynamic_objects)/models/make_actor.sdf -robot_namespace '' -reference_frame 'world'" />
+  
+    <!-- Actor Follower node -->
+    <node name="actor_follower" pkg="dynamic_objects" type="actor_follower_node">
+      <param name="follow_distance" value="$(arg threshold_distance)" />
+      <param name="actor_speed" value="$(arg actor_speed)" />
+      <param name="x_thr" value="$(arg x_thr)" />
+      <param name="y_thr" value="$(arg y_thr)" />
+    </node>
+  </launch>

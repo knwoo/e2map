@@ -1,0 +1,22 @@
+<launch>
+    <!-- Parameter set -->
+    <arg name="threshold_distance" default="1.75" />
+
+    <!-- Gazebo go1 spawn -->
+    <include file="$(find unitree_guide)/launch/go1_spawner.launch">
+      <arg name="x_loc" default="-3.627866" />
+      <arg name="y_loc" default="2.194374" />
+      <arg name="z_loc" default="0.55" />
+      <arg name="yaw" default="-1.57" />
+    </include>
+  
+    <!-- rosparam set-->
+    <param name="threshold_distance" value="$(arg threshold_distance)" />
+    <param name="spawn_door" command="$(find xacro)/xacro $(find dynamic_objects)/models/hinged_door.sdf" />
+
+    <!-- Gazebo dynamic door spawn -->
+    <node pkg="gazebo_ros" type="spawn_model" name="gazebo_door1" args="-sdf -param spawn_door -model door_1 -x -4.029423 -y -0.07 -z 0.0" respawn="false" output="screen">
+    </node>
+  
+
+  </launch>

@@ -1,0 +1,63 @@
+<launch>
+    <arg name="wname" default="models"/>
+    <arg name="rname" default="go1"/>
+    <arg name="robot_path" value="$(find go1_description)"/>
+    <arg name="dollar" value="$"/>
+
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
+    <arg name="user_debug" default="false"/>
+    
+    <!-- IMU noise parameters -->
+    <arg name="gaussian_noise" default="0.01"/>
+    <arg name="rate_mean" default="0.0"/>
+    <arg name="rate_stddev" default="0.0"/>
+    <arg name="rate_bias_mean" default="0.0"/>
+    <arg name="rate_bias_stddev" default="0.0"/>
+    <arg name="accel_mean" default="0.0"/>
+    <arg name="accel_stddev" default="0.0"/>
+    <arg name="accel_bias_mean" default="0.0"/>
+    <arg name="accel_bias_stddev" default="0.0"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find test_zone)/worlds/$(arg wname).world"/>
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+
+    <param name="imu/gaussian_noise" value="$(arg gaussian_noise)"/>
+    <param name="imu/rate_mean" value="$(arg rate_mean)"/>
+    <param name="imu/rate_stddev" value="$(arg rate_stddev)"/>
+    <param name="imu/rate_bias_mean" value="$(arg rate_bias_mean)"/>
+    <param name="imu/rate_bias_stddev" value="$(arg rate_bias_stddev)"/>
+    <param name="imu/accel_mean" value="$(arg accel_mean)"/>
+    <param name="imu/accel_stddev" value="$(arg accel_stddev)"/>
+    <param name="imu/accel_bias_mean" value="$(arg accel_bias_mean)"/>
+    <param name="imu/accel_bias_stddev" value="$(arg accel_bias_stddev)"/>
+
+    <!-- Load the URDF into the ROS Parameter Server -->
+    <param name="robot_description"
+           command="$(find xacro)/xacro --inorder '$(find go1_description)/xacro/robot.xacro' DEBUG:=$(arg user_debug)"/>
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find go1_description)/config/robot_control.yaml" command="load"/>
+
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"
+          respawn="false" output="screen">
+        <remap from="/joint_states" to="/$(arg rname)_gazebo/joint_states"/>
+    </node>
+
+    <!-- load the parameter unitree_controller -->
+    <include file="$(find unitree_controller)/launch/set_ctrl.launch">
+        <arg name="rname" value="$(arg rname)"/>
+    </include>
+
+</launch>

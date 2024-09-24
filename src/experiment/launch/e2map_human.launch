@@ -1,0 +1,21 @@
+<launch>
+    <rosparam file="$(find langnav)/config/config.yaml" command="load" />
+    <rosparam file="$(find experiment)/config/e2map_human_config.yaml" command="load" />
+
+    <include file="$(find e2map)/launch/publish_subgoal_coordinates.launch"/>
+    <include file="$(find e2map)/launch/publish_map.launch">
+        <arg name="rgb_buffer_size" default="100"/>
+        <arg name="event_timegap" default="20"/>
+        <arg name="tau" default="0.05"/>
+    </include>
+    <include file="$(find experiment)/launch/goal_selector.launch"/>
+    <include file="$(find path_planner)/launch/path_planner.launch"/>
+    <include file="$(find path_tracker)/launch/path_tracker.launch"/>
+    <include file="$(find perception)/launch/collision_detection.launch">
+        <arg name="dist_thres" default="0.3"/>
+    </include>
+    <include file="$(find experiment)/launch/success_counter.launch"/>
+    <include file="$(find dynamic_objects)/launch/reset_actor.launch"/> 
+
+    <node pkg="rviz" type="rviz" name="langnav_rviz" args="-d $(find langnav)/rviz/langnav.rviz" />
+</launch>

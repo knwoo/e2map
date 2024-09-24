@@ -1,0 +1,5 @@
+<launch>
+    <!-- <rosparam file="$(find langnav)/config/config.yaml" command="load" /> -->
+    <node name="reset_go1" pkg="dynamic_objects" type="reset_go1.py" output="screen"/>
+    <node name="reset_actor" pkg="dynamic_objects" type="reset_actor.py" output="screen"/>
+</launch>

@@ -1,0 +1,27 @@
+<launch>
+    <rosparam file="$(find langnav)/config/config.yaml" command="load" />
+    
+    <arg name="data_path" default="$(find e2map)/data" />
+    <arg name="cost_map_name" default="costmap.npy" />
+    <arg name="x_start" default="-178"/>
+    <arg name="x_end" default="178"/>
+    <arg name="y_start" default="-123"/>
+    <arg name="y_end" default="123"/>
+    <arg name="resolution" default="0.05"/>
+    <arg name="x_sample_num" default="356"/>
+    <arg name="y_sample_num" default="246"/>
+    <arg name="rate" default="1" />
+    
+    <node name="pointcloud_viewer" pkg="e2map" type="pointcloud.py" output="screen">
+        <param name="data_path" value="$(arg data_path)"/>
+        <param name="cost_map_name" value="$(arg cost_map_name)"/>
+        <param name="x_end" value="$(arg x_end)"/>
+        <param name="x_start" value="$(arg x_start)"/>
+        <param name="y_end" value="$(arg y_end)"/>
+        <param name="y_start" value="$(arg y_start)"/>
+        <param name="resolution" value="$(arg resolution)"/>
+        <param name="x_sample_num" value="$(arg x_sample_num)"/>
+        <param name="y_sample_num" value="$(arg y_sample_num)"/>
+        <param name="rate" value="$(arg rate)" />
+    </node>
+</launch>

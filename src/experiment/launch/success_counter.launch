@@ -1,0 +1,8 @@
+<launch>
+    <arg name="landmarks_list_path" default="$(find foundations)/text/landmarks_list.txt" />
+
+    <node pkg="experiment" name="success_counter" type="success_counter.py" output='screen'>
+        <param name="landmarks_list_path" value="$(arg landmarks_list_path)" />
+    </node>
+
+</launch>

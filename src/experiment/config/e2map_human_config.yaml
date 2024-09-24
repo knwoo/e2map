@@ -1,0 +1,5 @@
+scenario: 'human'
+scenario_done_topic: '/scenario_done'
+
+llm_type: 'ollama'
+landmarks_text_topic: "/landmarks_text"

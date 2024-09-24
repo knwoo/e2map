@@ -1,0 +1,116 @@
+<sdf version='1.5'>
+  <model name='Flip_Door'>
+
+    <link name='hinge'>
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.05 0 0 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>100</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+
+    <link name='door'>
+      <pose>0.05 -0.2 0.35 0 0 -1.57</pose>
+      <inertial>
+        <pose>0.05 -0.2 0.35 0 0 -1.57</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>100</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='door_collision'>
+        <pose>0.05 -0.2 0.35 0 0 -1.57</pose>
+        <geometry>
+          <box>
+            <size>0.927 0.1 1.96</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='door_visual'>
+        <pose>0.05 -0.2 0.35 0 0 -1.57</pose>
+        <geometry>
+          <box>
+            <size>0.927 0.1 1.96</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+
+    <joint name='door_hinge' type='revolute'>
+      <child>door</child>
+      <parent>hinge</parent>
+      <pose>0.08 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+
+    </joint>
+
+    <joint name='floor_link' type='revolute'>
+      <child>hinge</child>
+      <parent>world</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+
+  <plugin name="door_plugin" filename="libdoor_plugin.so">
+    <door_type>flip</door_type>
+    <model_domain_space>door_</model_domain_space>
+    <door_direction>clockwise</door_direction>
+  </plugin>
+
+  </model>
+</sdf>

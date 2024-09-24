@@ -1,0 +1,16 @@
+<launch>
+    <!-- <arg name="config" default="$(find langnav)/config/config.yaml" />
+    <rosparam file="$(arg config)" command="load" /> -->
+    
+    <arg name="platform" default='go1' doc="go1"/>
+    <arg name="algo" default='mppi' doc="mppi"/>
+
+    <node ns="planning" 
+          pkg="path_tracker"
+          name="path_tracker"
+          type="path_tracker_node">
+        <rosparam file="$(find path_tracker)/config/$(arg platform).yaml" command="load" />
+        <rosparam file="$(find path_tracker)/config/$(arg algo).yaml" command="load" />
+    </node>
+
+</launch>
