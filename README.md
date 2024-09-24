@@ -474,7 +474,7 @@ bash scripts/ollama.sh <prompt> <model>
 
 Then, you will see the web page of our user interface:
 <p align="center">
-   <img src="./images/llm_web_with_parsed_result.jpg" width="100%" height="100%">
+   <img src="./images/goal_selection_result.png" width="100%" height="100%">
 </p>
 
 ## Citation
