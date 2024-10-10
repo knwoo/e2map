@@ -2,7 +2,7 @@
 
 #### [[Project Page]](https://e2map.github.io/) [[Paper]](https://www.arxiv.org/abs/2409.10027) 
 
-[Chan Kim](https://sites.google.com/snu.ac.kr/chankim)<sup>*1</sup>, [Keonwoo Kim](https://www.notion.so/Keonwoo-Kim-743fdb8532e34542bca4172790183849?pvs=4)<sup>*1</sup>, Mintaek Oh<sup>1</sup>, Hanbi Baek<sup>1</sup>, Jiyang Lee<sup>1</sup>, [Donghwi Jung](https://donghwijung.github.io/)<sup>1</sup>, [Soojin Woo](https://woo-soojin.github.io/)<sup>1</sup>, [Younkyung Woo](www.linkedin.com/in/younkyung-woo)<sup>2</sup>, [John Tucker](https://msl.stanford.edu/people/johntucker)<sup>3</sup>, [Roya Firoozi](https://sites.google.com/view/royafiroozi/home)<sup>3</sup>, [Seung-Woo Seo](https://ece.snu.ac.kr/en/research-faculty/faculty/fulltime?md=view&profid=p022)<sup>1</sup>, [Mac Shwager](https://web.stanford.edu/~schwager/)<sup>3</sup>, [Seong-Woo Kim](https://arisnu.squarespace.com/director)<sup>1</sup>
+[Chan Kim](https://sites.google.com/snu.ac.kr/chankim)<sup>*1</sup>, [Keonwoo Kim](https://www.notion.so/Keonwoo-Kim-743fdb8532e34542bca4172790183849?pvs=4)<sup>*1</sup>, Mintaek Oh<sup>1</sup>, Hanbi Baek<sup>1</sup>, Jiyang Lee<sup>1</sup>, [Donghwi Jung](https://donghwijung.github.io/)<sup>1</sup>, [Soojin Woo](https://woo-soojin.github.io/)<sup>1</sup>, [Younkyung Woo](https://www.linkedin.com/in/younkyung-woo)<sup>2</sup>, [John Tucker](https://msl.stanford.edu/people/johntucker)<sup>3</sup>, [Roya Firoozi](https://sites.google.com/view/royafiroozi/home)<sup>3</sup>, [Seung-Woo Seo](https://ece.snu.ac.kr/en/research-faculty/faculty/fulltime?md=view&profid=p022)<sup>1</sup>, [Mac Shwager](https://web.stanford.edu/~schwager/)<sup>3</sup>, [Seong-Woo Kim](https://arisnu.squarespace.com/director)<sup>1</sup>
 
 (*Indicates equal contribution)
 
